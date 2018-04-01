@@ -1,0 +1,9 @@
+version: '3'
+services: 
+  sqlserver:
+    container_name: "sqlserver"
+    image: "microsoft/mssql-server-linux:2017-latest"
+    env_file:
+      - "mssql.env"
+    ports:
+      - "1401:1433"
