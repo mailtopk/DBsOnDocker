@@ -1,20 +1,21 @@
 
-## Cassandra
-Building Cassandra Database on docker. Docker compose build three nodes, cassandra0 (main seed node), cassandra1 and cassandra2
+# Cassandra Container
+Building Cassandra Database on docker. Docker compose build three nodes, cassandra0 (main seed node), cassandra1 and cassandra2.
+*Note* - Cassandra need more memory to run three nodes, increase the memory in  Docker prefernces to 6g.
 
 ### Run compose file
 Navigate to cd DBsOnDocker/cassandra directroy.
 Start docker compose
 ```console
-    $ docker-compose up -d
+    docker-compose up -d
 ```
 
 ### Verify the containers are up and running 
 ```console
- $ docker ps --format "table {{.ID}}\t {{.Names}}\t {{.Ports}}\t {{.Status}}"
+    docker ps --format "table {{.ID}}\t {{.Names}}\t {{.Ports}}\t {{.Status}}"
 ```
 
-### Expected output
+### Expected output, List of nodes
 ```console
 CONTAINER ID         NAMES               PORTS                                                        STATUS
 7fc0a0a1ac7d         cassandra1          7000-7001/tcp, 7199/tcp, 9160/tcp, 0.0.0.0:9042->9042/tcp    Up 41 minutes
@@ -24,9 +25,10 @@ CONTAINER ID         NAMES               PORTS                                  
 
 ### Check Cluster status
 ```console
- $ docker exec cassandra0 nodetool status
+  $docker exec cassandra0 nodetool status
 ```
-### Expected output
+
+### Nodes tool output
 ```console
 Datacenter: datacenter1
 =======================
